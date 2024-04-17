@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "c183a8df-7569-422e-b681-5cf538015566",
+		"name": "Kurtosys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "28596311-c183a8df-7569-422e-b681-5cf538015566"
+	},
+	"item": [
+		{
+			"name": "Assert 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5920edc4-de7f-40aa-80d3-eccedd778e15",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "8b26356d-197b-402f-8b0b-824e61bc837d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assert Less than 2 sec",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a0e663d-b279-40f0-9789-5960a13ccb9a",
+						"exec": [
+							"pm.test(\"Response time is below 2s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "4e609121-415a-4c5b-bf70-c14072d9ec73",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assert Header Cloudflare",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba9bc913-cd94-407d-bb22-9958e6886c89",
+						"exec": [
+							"pm.test(\"Header Cloudflare\", function () {\r",
+							"    // Ensure that the 'Server' header exists in the response\r",
+							"    pm.expect(pm.response.headers.has(\"Server\")).to.be.true;\r",
+							"\r",
+							"    // Check if the 'Server' header contains the string 'cloudflare'\r",
+							"    pm.expect(pm.response.headers.get(\"Server\")).to.include('cloudflare');\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "d27573fa-8595-428c-8da3-dadf04f51686",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
